@@ -1,0 +1,17 @@
+services:
+  luavault:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATA_DIR: /data
+    volumes:
+      - luavault-data:/data
+    restart: unless-stopped
+
+volumes:
+  luavault-data:
